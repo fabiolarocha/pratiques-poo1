@@ -48,6 +48,10 @@ public class Main {
 		oficina.adicionarMecanico(mecanico1);
 		oficina.adicionarMecanico(mecanico2);
 		oficina.adicionarMecanico(mecanico3);
+		
+		System.out.println("***");
+		System.out.println("Implementação do método");
+		System.out.println("***");
 	}
 
 }
