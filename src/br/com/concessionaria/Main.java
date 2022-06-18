@@ -1,5 +1,7 @@
 package br.com.concessionaria;
 
+import java.util.Iterator;
+
 import br.com.concessionaria.estrutura.Peca;
 import br.com.concessionaria.funcionarios.Mecanico;
 import br.com.concessionaria.oficina.Oficina;
@@ -18,6 +20,14 @@ public class Main {
 		oficina.adicionarVeiculo(veiculo1);
 		oficina.adicionarVeiculo(veiculo2);
 		oficina.adicionarVeiculo(veiculo3);
+		
+		System.out.println("");
+		System.out.println("Quantidade de peças necessárias na oficina: " + oficina.getPecasNecessarias());
+		
+		oficina.removerVeiculo(veiculo1);
+		
+		System.out.println("");
+		System.out.println("Quantidade de peças necessárias na oficina: " + oficina.getPecasNecessarias());
 
 		Peca peca1 = new Peca("Bateria", 300, "10/02/2021");
 		Peca peca2 = new Peca("Macaco", 200, "18/02/2021");
@@ -52,6 +62,16 @@ public class Main {
 		System.out.println("***");
 		System.out.println("Implementação do método");
 		System.out.println("***");
+		
+		float somatorioTotalDasPecas = 0;
+		
+		for (Peca peca : oficina.getListaPecas()) {
+			
+			System.out.println("Nome da Peça; " + peca.getNome());
+			System.out.println("Valor da Peça; " + peca.getValor());
+			somatorioTotalDasPecas += peca.getValor();
+		}
+		System.out.println("Soma total das Peças da Oficina: R$ " + somatorioTotalDasPecas);
 	}
 
 }

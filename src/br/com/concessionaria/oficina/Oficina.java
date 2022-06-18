@@ -1,6 +1,7 @@
 package br.com.concessionaria.oficina;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import br.com.concessionaria.estrutura.Peca;
 import br.com.concessionaria.funcionarios.Mecanico;
@@ -41,17 +42,24 @@ public class Oficina {
 	}
 	
 	public void adicionarVeiculo(Veiculo veiculo) {
+		int numeroDePecasNecessariasIncluidas = verificarPecasRevisao();
+		this.pecasNecessarias += numeroDePecasNecessariasIncluidas;
 		this.getListaVeiculos().add(veiculo);
-		System.out.println("Veículo foi adicionado!");
+		System.out.println("Veículo adicionado com sucesso! E necessita de " + numeroDePecasNecessariasIncluidas + " Peças.");
 	}
 	
 	public void removerVeiculo(Veiculo veiculo) {
+		int numeroDePecasNecessariasRemovidas = verificarPecasRevisao();
+		this.pecasNecessarias -= numeroDePecasNecessariasRemovidas;
+		this.getListaVeiculos().remove(veiculo);
+		System.out.println("Veículo removido com sucesso! Sendo " + numeroDePecasNecessariasRemovidas + " Peças removidas.");
 		
 	}
 	
 	public int verificarPecasRevisao() {
-		int numeroPecasUsadas = 0;
-		return numeroPecasUsadas;
+		Random numeroAleatorio = new Random();
+		int numeroDePecasUtilizadas = numeroAleatorio.nextInt(3) + 1;
+		return numeroDePecasUtilizadas;
 	}
 	
 	public boolean realizarRevisaoVeiculos() {
